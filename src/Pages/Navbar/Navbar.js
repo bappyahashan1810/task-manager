@@ -19,6 +19,7 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='creation'>Create Task</Link></li>
         <li><Link to='/addmember'>Add Member</Link></li>
+        <li><Link to='/dashboard'>DashBoard</Link></li>
         {
             user ? <>
                 <li><button onClick={handleSignout} className='btn-sm'>LogOut</button></li>
@@ -37,7 +38,7 @@ const Navbar = () => {
 
     return (
         <div className=''>
-            <div className="navbar bg-orange-500 text-white">
+            <div className="navbar bg-orange-500 text-white fixed z-20 top-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -5,6 +5,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Creation from "../Pages/Creation/Creation";
 import AddMember from "../Pages/AddMember/AddMember";
 import DisplayTask from "../Pages/DisplayTask/DisplayTask";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/addmember',
                 element: <AddMember></AddMember>
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
             }
         ]
     }

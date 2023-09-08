@@ -22,10 +22,11 @@ const Creation = () => {
         newTask.push(...savedTask, addedTask);
         localStorage.setItem("task", JSON.stringify(newTask));
         toast.success('Successfully Added');
+        form.reset();
 
     }
     return (
-        <div className='md:mx-10 mr-3'>
+        <div className='md:mx-10 mr-3 mt-10'>
             <Toaster
                 position="top-center"
                 reverseOrder={false}
@@ -91,7 +92,7 @@ const Creation = () => {
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
-                                    <span className="label-text font-bold">priority Level</span>
+                                    <span className="label-text font-bold">Task Status</span>
 
                                 </label>
                                 <select name='mark' className="select select-ghost w-full max-w-xs" required>
