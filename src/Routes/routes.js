@@ -3,12 +3,18 @@ import Main from "../Layout/Main";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Creation from "../Pages/Creation/Creation";
+import AddMember from "../Pages/AddMember/AddMember";
+import DisplayTask from "../Pages/DisplayTask/DisplayTask";
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         children: [
+            {
+                path: '/',
+                element: <DisplayTask></DisplayTask>
+            },
             {
                 path: '/login',
                 element: <Login></Login>
@@ -20,6 +26,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/creation',
                 element: <Creation></Creation>
+            },
+            {
+                path: '/addmember',
+                element: <AddMember></AddMember>
             }
         ]
     }

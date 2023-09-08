@@ -16,7 +16,9 @@ const Navbar = () => {
             })
     }
     const navItem = <>
+        <li><Link to='/'>Home</Link></li>
         <li><Link to='creation'>Create Task</Link></li>
+        <li><Link to='/addmember'>Add Member</Link></li>
         {
             user ? <>
                 <li><button onClick={handleSignout} className='btn-sm'>LogOut</button></li>
