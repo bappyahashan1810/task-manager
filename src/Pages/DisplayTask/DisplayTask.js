@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcLowPriority } from 'react-icons/fc';
 
-const DisplayTask = () => {
-    const loadTasks = JSON.parse(localStorage.getItem('task'));
-    const [tasks, setTasks] = useState(loadTasks)
-    console.log(tasks);
-    // const getUniqueData = (data, category) => {
-    //     let newValue = data.map(item => {
-    //         return item[category];
-    //     })
-    //     newValue = ["All", ... new Set(newValue)]
-    //     return newValue;
 
-    // }
-    // const categoryOnlyData = getUniqueData(tasks, 'mark');
+const getlocalstorage = () => {
+    const local = JSON.parse(localStorage.getItem('task'));
+    if (local) {
+        return JSON.parse(localStorage.getItem('task'));
+    }
+    else {
+        return [];
+    }
+}
+const DisplayTask = () => {
+    const [tasks, setTasks] = useState(getlocalstorage())
+    console.log(tasks);
     const handlefilter = (data) => {
-        const filterdata = tasks.filter(item => item.mark !== data);
+        const filterdata = tasks.filter(item => item.mark === data);
         setTasks(filterdata);
 
 
@@ -24,7 +24,7 @@ const DisplayTask = () => {
         <div className='grid grid-cols-6 gap-5 mt-20'>
             <div className='col-span-1 text-center space-y-4'>
                 <h1 className='font-bold '>Filter By Status</h1>
-                <button onClick={() => handlefilter('All')} className='btn-sm text-center block'>All</button>
+                <button onClick={() => setTasks(getlocalstorage())} className='btn-sm text-center block'>All</button>
                 <button onClick={() => handlefilter('pending')} className='btn-sm text-center block'>pending</button>
                 <button onClick={() => handlefilter('progress')} className='btn-sm text-center block'>progress</button>
                 <button onClick={() => handlefilter('completed')} className='btn-sm text-center block'>completed</button>
